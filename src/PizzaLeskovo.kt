@@ -1,4 +1,3 @@
-//leskovo pizzeria
 class PizzaLeskovo(
     neapolitanPizzaPrice: Double,romanPizzaPrice: Double,
     sicilianPizzaPrice: Double, tyroleanPizzaPrice: Double
@@ -6,10 +5,10 @@ class PizzaLeskovo(
     neapolitanPizzaPrice,  romanPizzaPrice,
     sicilianPizzaPrice,  tyroleanPizzaPrice), Drink, CheckPhoto, Sauce
 {
-    val coffeePrice = 200.0 //price of a coffee cup in roubles
+    val coffeePrice = 200.0
     var coffeeCount = 0
 
-    val receiptDiscount = 50.0 //ruble amount of discount a receipt gives
+    val receiptDiscount = 50.0
     var receiptCount = 0
 
     val ketchupSaucePrice = 20.0
@@ -23,9 +22,9 @@ class PizzaLeskovo(
     var sicilianPlusCoffee = 0
     var tyroleanPlusCoffee = 0
 
-    private var currSelectedPizza = "undefined" //needed to calculate what pizza goes well with coffee
+    private var currSelectedPizza = "undefined" // Отдельное значение до обновления статистики
 
-    override fun showStats() //base class func overridden
+    override fun showStats()
     {
         println("-------------------------------------------")
         println("СТАТИСТИКА ПО ЛЕСКОВО")
@@ -47,7 +46,7 @@ class PizzaLeskovo(
         println("Чек показывают ${calcPercent(clientCount,receiptCount)}% клиентов")
 
         println("Купили баночек кетчупа: $ketchupSauceCount; на сумму ${ketchupSauceCount*ketchupSaucePrice} рублей")
-        println("Купили баночек горчицы: $hawaiiSauceCount; на сумму ${hawaiiSaucePrice*hawaiiSauceCount} рублей")
+        println("Купили баночек гавайского: $hawaiiSauceCount; на сумму ${hawaiiSaucePrice*hawaiiSauceCount} рублей")
 
         var sauceIncome = ketchupSaucePrice*ketchupSauceCount+hawaiiSauceCount*hawaiiSaucePrice
         println("На соусах заработали $sauceIncome рублей")
@@ -55,7 +54,8 @@ class PizzaLeskovo(
         println("Итого на счету пиццерии ${moneyPizz+coffeePrice*coffeeCount+sauceIncome-receiptCount*receiptDiscount} рублей")
         println("-------------------------------------------")
     }
-    override fun drinkSale() { //interface implementation
+
+    override fun drinkSale() {
         println("Не хотите ли выпить кофе?")
         println("1. Да\n2. Нет")
         if (readln()=="1")
@@ -71,7 +71,8 @@ class PizzaLeskovo(
             }
         }
     }
-    override fun showReceiptPhoto() { //interface implementation
+
+    override fun showReceiptPhoto() {
         println("У Вас есть фотография чека?")
         println("1. Да\n2. Нет")
         if (readln()=="1")
@@ -106,28 +107,28 @@ class PizzaLeskovo(
         else println("Вы не взяли соус")
     }
 
-    override fun neapolitanPizzaSell() //pizza sellers
+    override fun neapolitanPizzaSell()
     {
         neapolitanPizzaCount++
         currSelectedPizza="neapolitanPizza"
-        println("Спасибо за покупку неаполитанской пиццы в Котласе")
+        println("Спасибо за покупку неаполитанской пиццы в Лесково!")
     }
     override fun romanPizzaSell()
     {
         romanPizzaCount++
         currSelectedPizza="romanPizza"
-        println("Спасибо за покупку римской пиццы в Котласе")
+        println("Спасибо за покупку римской пиццы в Лесково!")
     }
     override fun sicilianPizzaSell()
     {
         sicilianPizzaCount++
         currSelectedPizza="sicilianPizza"
-        println("Спасибо за покупку сицилийской пиццы в Котласе")
+        println("Спасибо за покупку сицилийской пиццы в Лесково!")
     }
     override fun tyroleanPizzaSell()
     {
         tyroleanPizzaCount++
         currSelectedPizza="tyroleanPizza"
-        println("Спасибо за покупку тирольской пиццы в Котласе")
+        println("Спасибо за покупку тирольской пиццы в Лесково!")
     }
 }

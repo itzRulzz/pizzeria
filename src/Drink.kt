@@ -1,4 +1,5 @@
-interface Drink //interface for making you buy a coffee
+// Покупка кофе
+interface Drink
 {
     fun drinkSale()
 }

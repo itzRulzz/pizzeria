@@ -1,4 +1,3 @@
-//saint petersburg pizzeria
 class PizzaPeter(
     neapolitanPizzaPrice: Double,romanPizzaPrice: Double,
     sicilianPizzaPrice: Double, tyroleanPizzaPrice: Double
@@ -6,7 +5,7 @@ class PizzaPeter(
     neapolitanPizzaPrice,  romanPizzaPrice,
     sicilianPizzaPrice,  tyroleanPizzaPrice), Drink
 {
-    val coffeePrice = 200.0 //price of a coffee cup in roubles
+    val coffeePrice = 200.0
     var coffeeCount = 0
 
     var neapPlusCoffee = 0
@@ -14,9 +13,8 @@ class PizzaPeter(
     var sicilianPlusCoffee = 0
     var tyroleanPlusCoffee = 0
 
-    private var currSelectedPizza = "undefined" //needed to calculate what pizza goes well with coffee
-
-    override fun showStats() //base class func overridden
+    private var currSelectedPizza = "undefined" // Отдельное значение до обновления статистики
+    override fun showStats()
     {
         println("-------------------------------------------")
         println("СТАТИСТИКА ПО СПБ")
@@ -36,7 +34,7 @@ class PizzaPeter(
         println("-------------------------------------------")
     }
 
-    override fun drinkSale() { //interface implementation
+    override fun drinkSale() {
         println("Не хотите ли выпить кофе?")
         println("1. Да\n2. Нет")
         if (readln()=="1")
@@ -52,6 +50,7 @@ class PizzaPeter(
             }
         }
     }
+
     override fun neapolitanPizzaSell() //pizza sellers
     {
         neapolitanPizzaCount++

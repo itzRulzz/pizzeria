@@ -1,4 +1,4 @@
-//interface for making you buy a sauce
+// Покупка соуса
 interface Sauce
 {
     fun SauceSale()

@@ -1,4 +1,3 @@
-//moscow pizzeria
 class PizzaMoscow(
     neapolitanPizzaPrice: Double, romanPizzaPrice: Double,
     sicilianPizzaPrice: Double, tyroleanPizzaPrice: Double
@@ -6,9 +5,10 @@ class PizzaMoscow(
     neapolitanPizzaPrice,romanPizzaPrice,
     sicilianPizzaPrice, tyroleanPizzaPrice), CheckPhoto
 {
-    val receiptDiscount = 50.0 //ruble amount of discount a receipt gives
+    val receiptDiscount = 50.0
     var receiptCount = 0
-    override fun showStats() //statics
+
+    override fun showStats()
     {
         println("-------------------------------------------")
         println("СТАТИСТИКА ПО МОСКВЕ")
@@ -22,9 +22,9 @@ class PizzaMoscow(
         println()
         println("Итого на счету пиццерии ${moneyPizz-receiptCount*receiptDiscount} рублей")
         println("-------------------------------------------")
-
     }
-    override fun showReceiptPhoto() { //interface implementation
+
+    override fun showReceiptPhoto() {
         println("У Вас есть фотография чека?")
         println("1. Да\n2. Нет")
         if (readln()=="1")
@@ -33,7 +33,8 @@ class PizzaMoscow(
             receiptCount++
         }
     }
-    override fun neapolitanPizzaSell() //base class overridden
+
+    override fun neapolitanPizzaSell()
     {
         neapolitanPizzaCount++
         println("Спасибо за покупку неаполитанской пиццы в Москве")

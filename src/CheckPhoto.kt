@@ -1,4 +1,5 @@
-interface CheckPhoto //interface for showing a receipt to get a discount
+// Проверка фотографии чека
+interface CheckPhoto
 {
     fun showReceiptPhoto()
 }

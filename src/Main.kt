@@ -14,26 +14,27 @@ fun main()
         100.0, 200.0,
         120.5, 99.99
     )
-    //main objects
 
-    var currentPizzaCity: PizzaCity //holder for a city
-    while (true) //main cycle
+    var currentPizzaCity: PizzaCity
+    while (true)
     {
         println("Добро пожаловать в пиццерию! Выберите город")
         println("1. Москва \n2. Санкт-Петербург\n3. Лесково\n\n0. Выход")
         val city = readln()
         println()
-        when (city) { //place an object in the holder
-            "1" -> currentPizzaCity = pizzaMSK
-            "2" -> currentPizzaCity = pizzaSPb
-            "3" -> currentPizzaCity = pizzaLeskovo
+        currentPizzaCity = when (city) { //place an object in the holder
+            "1" -> pizzaMSK
+            "2" -> pizzaSPb
+            "3" -> pizzaLeskovo
             "0" -> break
             else -> {
                 println("ERROR")
                 continue
             }
         }
-        currentPizzaCity.clientCount++ //increment client count
+        // Увел. кол-во. посетителей после взаимодействия
+        currentPizzaCity.clientCount++
+
         println("Выберите пиццу:")
         println(
             "1. Неаполитанская\n2. Римская\n" +
@@ -44,7 +45,7 @@ fun main()
     }
 }
 
-private fun selectPizzaType(currentPizzaCity: PizzaCity) { //pizza chooser
+private fun selectPizzaType(currentPizzaCity: PizzaCity) {
     when (readln()) {
         "1" -> {
             currentPizzaCity.neapolitanPizzaSell(); selectAddService(currentPizzaCity)
@@ -70,8 +71,8 @@ private fun selectPizzaType(currentPizzaCity: PizzaCity) { //pizza chooser
     }
 }
 
-
-fun selectAddService(currentPizzaCity:PizzaCity) //additional service chooser
+// Доп. функции в зависимости от города
+fun selectAddService(currentPizzaCity:PizzaCity)
 {
     if (currentPizzaCity is Drink)
     {currentPizzaCity.drinkSale()}
@@ -80,7 +81,9 @@ fun selectAddService(currentPizzaCity:PizzaCity) //additional service chooser
     if (currentPizzaCity is CheckPhoto)
     {currentPizzaCity.showReceiptPhoto()}
 }
-fun calcPercent(Amain: Int, Apart: Int):String //calculates a percent of an integer
+
+// Калькулятор процентов
+fun calcPercent(Amain: Int, Apart: Int):String
 {
     if (Amain==0) return "0.0"
     return     String.format("%.2f",     ((Apart.toDouble()/Amain.toDouble())*100)    )
